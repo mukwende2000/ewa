@@ -1,0 +1,42 @@
+const movies: string[] = [
+  "Action",
+  "Adventure",
+  "Animation",
+  "Comedy",
+  "Crime",
+  "Documentary",
+  "Drama",
+  "Family",
+  "Fantasy",
+  "History",
+  "Horro",
+  "Music",
+  "Mystery",
+  "Romance",
+  "Science Fiction",
+  "Tv Movie",
+  "Thriller",
+  "War",
+  "Western",
+];
+
+const series: string[] = [
+  "Action & Adventure",
+  "Animation",
+  "Comedy",
+  "Crime",
+  "Documentary",
+  "Drama",
+  "Family",
+  "Kids",
+  "Mystery",
+  "News",
+  "Reality",
+  "Sci-Fi & Fantasy",
+  "Soap",
+  "Talk",
+  "war & Politics",
+  "Western",
+];
+
+export { series, movies };
