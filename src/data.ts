@@ -9,7 +9,7 @@ const movies: string[] = [
   "Family",
   "Fantasy",
   "History",
-  "Horro",
+  "Horror",
   "Music",
   "Mystery",
   "Romance",

@@ -13,7 +13,7 @@ function index() {
         <Container>
           <div className="flex justify-between my-5 p-5">
             <input
-              className="basis-[80%] bg-transparent focus:outline-none focus:border-b border-b-slate-600"
+              className="basis-[80%] bg-transparent focus:outline-none focus:border-b border-b-slate-600 placeholder:text-2xl"
               placeholder={`Search for ${placeholder}`}
               type="text"
             />

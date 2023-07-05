@@ -17,7 +17,7 @@ function index() {
                     : "bg-[rgb(25,31,46)]"
                 } ${
                   index === movies.length - 1
-                    ? "col-start-1 col-end-3 md:col-end-5 lg:col-end-7"
+                    ? "col-start-1 col-end-3 md:col-start-3 md:col-end-5 lg:col-start-1 lg:col-end-7"
                     : null
                 } `}
               >

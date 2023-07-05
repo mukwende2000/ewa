@@ -1,37 +1,40 @@
-import { RouterProvider, createBrowserRouter } from "react-router-dom"
-import RootLayout from "./RootLayout"
-import Home from "./routes/Home"
-import Movies from "./routes/Movies"
-import Series from "./routes/Series"
-
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import RootLayout from "./RootLayout";
+import Home from "./routes/Home";
+import Movies from "./routes/Movies";
+import Series from "./routes/Series";
+import MovieDetails from "./routes/MovieDetails";
 
 function App() {
-
   const router = createBrowserRouter([
     {
       element: <RootLayout />,
-      path: '/', 
+      path: "/",
       children: [
         {
           element: <Home />,
-          path: '/'
+          path: "/",
         },
         {
           element: <Movies />,
-          path: '/movies'
+          path: "/movies",
         },
         {
           element: <Series />,
-          path: '/series'
-        }
-      ]
-    }
-  ])
+          path: "/series",
+        },
+        {
+          element: <MovieDetails />,
+          path: "movies/:id",
+        },
+      ],
+    },
+  ]);
   return (
     <div>
-      <RouterProvider router={router}/>
+      <RouterProvider router={router} />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
