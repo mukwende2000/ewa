@@ -10,7 +10,7 @@ function index() {
           return (
             <li
               key={episode}
-              className={`rounded-lg h-40 ${
+              className={`rounded-lg h-40 hover:animate-tilt duration-300 ${
                 index % 2 === 0
                   ? "bg-[rgb(14,116,144)]/70"
                   : "bg-[rgb(25,31,46)]"

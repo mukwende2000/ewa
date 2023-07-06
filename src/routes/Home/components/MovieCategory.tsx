@@ -9,28 +9,16 @@ import { useEffect, useState } from "react";
 type Props = {
   isTvSeries?: boolean;
   categoryName: string;
-  request: string;
+  endPoint: string;
 };
 
-function MovieCategory({ request, isTvSeries, categoryName }: Props) {
-  const [movies, setMovies] = useState<any>();
-  //   const movieQuery = useQuery({
-  //     queryKey: ["movies"],
-  //     queryFn: () => getData(request),
-  //   });
-  //   const movies = movieQuery.data?.data?.results?.slice(0, 6);
-  //   console.log(request);
-  useEffect(() => {
-    async function getData(endPoint: string): Promise<any> {
-      const request = await axios.get(
-        `https://api.themoviedb.org/3${endPoint}`
-      );
-      setMovies(request.data.results.slice(0, 6));
-      return request;
-    }
-
-    getData(request);
+function MovieCategory({ endPoint, isTvSeries, categoryName }: Props) {
+  const movieQuery = useQuery({
+    queryKey: ["movies", endPoint],
+    queryFn: () => getData(endPoint),
   });
+  const movies = movieQuery.data?.data?.results?.slice(0, 6);
+
   return (
     <div className="first:mt-9 mt-20">
       <div className="flex justify-between my-5">
@@ -40,9 +28,11 @@ function MovieCategory({ request, isTvSeries, categoryName }: Props) {
             {isTvSeries ? "SERIES" : "MOVIE"}
           </span>
         </p>
-        <Link to="">see more</Link>
+        <Link to="" className="text-sm">
+          SEE MORE
+        </Link>
       </div>
-      <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
+      <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
         {movies?.map((movie: any, index: any) => {
           return (
             <MovieItem

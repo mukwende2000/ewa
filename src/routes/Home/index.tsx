@@ -29,7 +29,7 @@ function index() {
           return (
             <MovieCategory
               isTvSeries={index > 2}
-              request={category.request}
+              endPoint={category.request}
               categoryName={category.categoryName}
             />
           );
