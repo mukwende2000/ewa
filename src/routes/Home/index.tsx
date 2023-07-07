@@ -1,25 +1,7 @@
 import Container from "../../components/Container";
-import requests from "../../services/requests";
 import MovieCategory from "./components/MovieCategory";
 
-const categories = [
-  {
-    request: requests.movies.fetchPopular,
-    categoryName: "Trending",
-  },
-  {
-    request: requests.movies.fetchTopRated,
-    categoryName: "Top Rated",
-  },
-  {
-    request: requests.movies.fetchNowPlaying,
-    categoryName: "Now Playing",
-  },
-  {
-    request: `${requests.series.fetchPopular}`,
-    categoryName: "Trending",
-  },
-];
+import { categories } from "../../data";
 
 function index() {
   return (
@@ -28,6 +10,7 @@ function index() {
         {categories.map((category, index) => {
           return (
             <MovieCategory
+              key={category.id}
               isTvSeries={index > 2}
               endPoint={category.request}
               categoryName={category.categoryName}

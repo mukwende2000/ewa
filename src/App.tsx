@@ -3,7 +3,11 @@ import RootLayout from "./RootLayout";
 import Home from "./routes/Home";
 import Movies from "./routes/Movies";
 import Series from "./routes/Series";
-import MovieDetails from "./routes/MovieDetails";
+import MovieList, { loader as MovieLoader } from "./routes/MovieList";
+import SeriesList, { loader as SeriesLoader } from "./routes/SeriesList";
+import MovieDetails, {
+  loader as movieDetailsLoader,
+} from "./routes/MovieDetails";
 
 function App() {
   const router = createBrowserRouter([
@@ -25,7 +29,18 @@ function App() {
         },
         {
           element: <MovieDetails />,
+          path: "/movie/:id",
+          loader: movieDetailsLoader,
+        },
+        {
+          element: <MovieList />,
           path: "movies/:id",
+          loader: MovieLoader,
+        },
+        {
+          element: <SeriesList />,
+          path: "series/:id",
+          loader: SeriesLoader,
         },
       ],
     },

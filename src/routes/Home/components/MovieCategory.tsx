@@ -1,10 +1,8 @@
 import { Link } from "react-router-dom";
 import MovieItem from "./MovieItem";
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
-import requests from "../../../services/requests";
 import { getData } from "../../../services/getData";
-import { useEffect, useState } from "react";
+import { MovieType, SeriesType } from "../../../utils/types";
 
 type Props = {
   isTvSeries?: boolean;
@@ -33,18 +31,24 @@ function MovieCategory({ endPoint, isTvSeries, categoryName }: Props) {
         </Link>
       </div>
       <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
-        {movies?.map((movie: any, index: any) => {
+        {movies?.map((movie: MovieType | SeriesType, index: number) => {
+          let title;
+          let year;
+          if ("title" in movie && "release_date" in movie) {
+            title = movie.title;
+            year = movie.release_date.slice(0, 4);
+          } else {
+            title = movie.name;
+            year = movie.first_air_date.slice(0, 4);
+          }
           return (
             <MovieItem
               key={movie.id}
               id={movie.id}
               path={movie.backdrop_path || movie.poster_path}
-              movieTitle={movie.title || movie.name}
-              year={
-                movie.release_date?.slice(0, 4) ||
-                movie.first_air_date?.slice(0, 4)
-              }
+              movieTitle={title}
               isTvSeries={isTvSeries}
+              year={year}
               styles={
                 index === 4
                   ? "lg:col-start-1 lg:col-end-3"

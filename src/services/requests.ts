@@ -1,9 +1,9 @@
-const API_KEY = "f5726e1123dbd2b96c0a066a3dc8c673";
+export const API_KEY = "f5726e1123dbd2b96c0a066a3dc8c673";
 
 const requests = {
   movies: {
     fetchAction: `/discover/movie?api_key=${API_KEY}&with_genre=28`,
-    fetchAdventure: `/discover/movie?api_key=${API_KEY}&with_genre=12`,
+    fetchAdventure: `/discover/movie?api_key=${API_KEY}&with_genres=12`,
     fetchAnimation: `/discover/movie?api_key=${API_KEY}&with_genre=16`,
     fetchComedy: `/discover/movie?api_key=${API_KEY}&with_genre=35`,
     fetchCrime: `/discover/movie?api_key=${API_KEY}&with_genre=80`,
@@ -55,41 +55,8 @@ const requests = {
 
 export default requests;
 
-// MOVIE
-// Action            28
-// Adventure     12
-// Animation     16
-// Comedy            35
-// Crime         80
-// Documentary       99
-// Drama         18
-// Family            10751
-// Fantasy           14
-// History           36
-// Horror            27
-// Music         10402
-// Mystery           9648
-// Romance           10749
-// Science Fiction   878
-// TV Movie      10770
-// Thriller      53
-// War               10752
-// Western           37
+//movie Details
+//https://api.themoviedb.org/3/movie/385687?api_key=f5726e1123dbd2b96c0a066a3dc8c673&language=en-US
 
-// TV SHOW
-// Action & Adventure    10759
-// Animation         16
-// Comedy                35
-// Crime             80
-// Documentary           99
-// Drama             18
-// Family                10751
-// Kids              10762
-// Mystery               9648
-// News              10763
-// Reality               10764
-// Sci-Fi & Fantasy  10765
-// Soap              10766
-// Talk              10767
-// War & Politics        10768
-// Western               37
+//Casts
+//https://api.themoviedb.org/3/movie/385687/credits?api_key=f5726e1123dbd2b96c0a066a3dc8c673

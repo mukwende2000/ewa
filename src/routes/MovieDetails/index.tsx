@@ -1,148 +1,71 @@
+import axios from "axios";
 import Container from "../../components/Container";
-import { FaImdb, FaLink, FaStar, FaStarHalfAlt } from "react-icons/fa";
+import { FaImdb, FaLink } from "react-icons/fa";
+import { useLoaderData } from "react-router-dom";
+import { imageUrl } from "../Home/components/MovieItem";
+import { API_KEY } from "../../services/requests";
+import { CastItemType, Genre, MovieDetailsType } from "../../utils/types";
 
 function index() {
+  const data = useLoaderData() as [MovieDetailsType, CastItemType[]];
+  const [movie, cast] = data;
+
+  console.log(movie);
+  console.log(cast);
   return (
     <main className="text-white">
       <Container styles="md:flex gap-10 px-10">
         <div className="basis-full grid md:block place-items-center">
-          <img src={"/resized.jpg"} alt="" />
+          <img src={`${imageUrl}${movie?.poster_path}`} alt={movie?.title} />
         </div>
-        <div>
-          <h1 className="text-5xl text-center md:text-left">Nimona</h1>
+        <div className="basis-full">
+          <h1 className="text-5xl text-center md:text-left">{movie?.title}</h1>
           <p className="text-gray-500 my-3 text-center md:text-left">
-            A new hero takes shape
+            {movie?.tagline}
           </p>
-          <div className="flex justify-center md:justify-start items-center">
-            <p className="font-bold text-4xl mr-4">4.0</p>
-            <FaStar />
-            <FaStar />
-            <FaStar />
-            <FaStar />
-            <FaStarHalfAlt />
-          </div>
-          <div className="flex justify-between md:justify-normal md:gap-32 my-7">
-            <div>
-              <p className="text-gray-500 font-bold mb-1">Length</p>
-              <p>101 min.</p>
-            </div>
-            <div>
-              <p className="text-gray-500 font-bold mb-1">Language</p>
-              <p>Engish</p>
-            </div>
-            <div>
-              <p className="text-gray-500 font-bold mb-1">Year</p>
-              <p>2023</p>
-            </div>
-            <div>
-              <p className="text-gray-500 font-bold mb-1">Status</p>
-              <p>N/A</p>
-            </div>
-          </div>
+
           <div>
             <h2 className="font-bold mb-2">Genre</h2>
             <div className="flex gap-3">
-              <p className="bg-white text-black rounded px-1 text-xs md:text-sm">
-                Animation
-              </p>
-              <p className="bg-white text-black rounded px-1 text-xs md:text-sm">
-                Science Fictio
-              </p>
-              <p className="bg-white text-black rounded px-1 text-xs md:text-sm">
-                Action
-              </p>
-              <p className="bg-white text-black rounded px-1 text-xs md:text-sm">
-                Adventure
-              </p>
-              <p className="bg-white text-black rounded px-1 text-xs md:text-sm">
-                Fantasy
-              </p>
+              {movie?.genres?.map((genre: Genre) => {
+                return (
+                  <p
+                    key={genre.id}
+                    className="bg-white text-black rounded px-1 text-xs md:text-sm"
+                  >
+                    {genre.name}
+                  </p>
+                );
+              })}
             </div>
             <div className="my-5">
               <h2 className="font-bold">Synopsis</h2>
-              <p>
-                A knight framed for a tragic crime teams with a scrappy,
-                shape-shifting teen to prove his innocence.
-              </p>
+              <p>{movie?.overview}</p>
             </div>
             <div>
               <h2 className="font-bold mb-3">Cast</h2>
               <div className="flex flex-wrap gap-3">
-                <span className="p-1 text-xs rounded border">
-                  Chloe Grace Moretz
-                </span>
-                <span className="p-1 text-xs rounded border">Riz Ahmed</span>
-                <span className="p-1 text-xs rounded border">
-                  Eugene Lee Yang
-                </span>
-                <span className="p-1 text-xs rounded border">
-                  Frances Conray
-                </span>
-                <span className="p-1 text-xs rounded border">
-                  Lorraine Toussaint
-                </span>
-                <span className="p-1 text-xs rounded border">Beck Bennett</span>
-                <span className="p-1 text-xs rounded border">RuPaul</span>
-                <span className="p-1 text-xs rounded border">Indya Moore</span>
-                <span className="p-1 text-xs rounded border">Julio Torres</span>
-                <span className="p-1 text-xs rounded border">
-                  Sarah Sherman
-                </span>
-                <span className="p-1 text-xs rounded border">ND Stevenson</span>
-                <span className="p-1 text-xs rounded border">Mia Collins</span>
-                <span className="p-1 text-xs rounded border">
-                  Zayaan Kunwar
-                </span>
-                <span className="p-1 text-xs rounded border">
-                  Charlotte Aldrich
-                </span>
-                <span className="p-1 text-xs rounded border">Karen Ryan</span>
-                <span className="p-1 text-xs rounded border">Nick Bruno</span>
-                <span className="p-1 text-xs rounded border">Troy Quane</span>
-                <span className="p-1 text-xs rounded border">
-                  Julie Zackary
-                </span>
-                <span className="p-1 text-xs rounded border">Randy Trager</span>
-                <span className="p-1 text-xs rounded border">
-                  Christopher Campbell
-                </span>
-                <span className="p-1 text-xs rounded border">
-                  Cindy Slattery
-                </span>
-                <span className="p-1 text-xs rounded border">
-                  Mathew J. Munn
-                </span>
-                <span className="p-1 text-xs rounded border">
-                  Sammersill Tarabek
-                </span>
-                <span className="p-1 text-xs rounded border">
-                  Sebastian Trager
-                </span>
-                <span className="p-1 text-xs rounded border">Sadie Trager</span>
-                <span className="p-1 text-xs rounded border">
-                  Lincoln Davis
-                </span>
-                <span className="p-1 text-xs rounded border">
-                  Lylianna Eugene
-                </span>
-                <span className="p-1 text-xs rounded border">
-                  Tim Nordquiest
-                </span>
-                <span className="p-1 text-xs rounded border">
-                  Maurissa Horwitz
-                </span>
-                <span className="p-1 text-xs rounded border">Jake Bruno</span>
-                <span className="p-1 text-xs rounded border">Jarret Bruno</span>
-                <span className="p-1 text-xs rounded border">
-                  Wesley Turner
-                </span>
+                {cast?.map((CastItemType: CastItemType) => {
+                  return (
+                    <span
+                      key={CastItemType.id}
+                      className="p-1 text-xs rounded border"
+                    >
+                      {CastItemType.name}
+                    </span>
+                  );
+                })}
               </div>
             </div>
             <div className="my-5 flex gap-5">
-              <button className="flex gap-5 items-center rounded bg-slate-500 py-2 px-5">
+              <a
+                href={movie?.homepage}
+                target="_blank"
+                className="flex gap-5 items-center rounded bg-slate-500 py-2 px-5"
+              >
                 <span>Website</span>
                 <FaLink />
-              </button>
+              </a>
               <button className="flex items-center gap-5 rounded bg-slate-500 px-5">
                 <span>IMDB</span>
                 <FaImdb />
@@ -153,6 +76,32 @@ function index() {
       </Container>
     </main>
   );
+}
+
+type LoaderParams = {
+  params: { id: number };
+};
+
+export async function loader({ params }: any): Promise<any> {
+  const { id } = params;
+  const data: [MovieDetailsType, CastItemType][] = [];
+  await axios
+    .all([
+      axios.get(
+        `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=en-US
+         `
+      ),
+      axios.get(
+        `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${API_KEY}`
+      ),
+    ])
+    .then(
+      axios.spread((movie, cast) => {
+        data.push(movie.data);
+        data.push(cast.data.cast);
+      })
+    );
+  return data;
 }
 
 export default index;
