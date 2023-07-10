@@ -14,7 +14,7 @@ function index() {
           return (
             <MovieItem
               key={movie.id}
-              id={movie.id}
+              pathname={`/movie/${movie.id}`}
               path={movie.backdrop_path}
               movieTitle={movie.title}
               year={movie.release_date.slice(0, 3)}

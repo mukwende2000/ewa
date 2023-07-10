@@ -1,5 +1,6 @@
 import { MdLocalMovies } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 type Props = {
   styles?: string;
@@ -7,15 +8,22 @@ type Props = {
   movieTitle: string | undefined;
   year: string | undefined;
   isTvSeries?: boolean;
-  id: number;
+  pathname: string;
 };
 
 export const imageUrl = "https://image.tmdb.org/t/p/w500/";
 
-function MovieItem({ isTvSeries, year, styles, path, movieTitle, id }: Props) {
+function MovieItem({
+  pathname,
+  isTvSeries,
+  year,
+  styles,
+  path,
+  movieTitle,
+}: Props) {
   return (
     <li className={`relative h-40 ${styles} group`}>
-      <Link to={`/movie/${id}`}>
+      <Link to={pathname}>
         <div className="absolute z-10 left-0 bottom-0 right-0 top-0 bg-black/50"></div>
         <div className="absolute left-0 top-0 right-0 bottom-0 rounded overflow-hidden">
           <img

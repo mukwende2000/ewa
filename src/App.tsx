@@ -9,6 +9,10 @@ import MovieDetails, {
   loader as movieDetailsLoader,
 } from "./routes/MovieDetails";
 
+import SeriesDetails, {
+  loader as SeriesDetailsLoader,
+} from "./routes/SeriesDetails";
+
 function App() {
   const router = createBrowserRouter([
     {
@@ -31,6 +35,11 @@ function App() {
           element: <MovieDetails />,
           path: "/movie/:id",
           loader: movieDetailsLoader,
+        },
+        {
+          element: <SeriesDetails />,
+          path: "/show/:id",
+          loader: SeriesDetailsLoader,
         },
         {
           element: <MovieList />,

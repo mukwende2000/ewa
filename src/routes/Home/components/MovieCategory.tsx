@@ -44,7 +44,7 @@ function MovieCategory({ endPoint, isTvSeries, categoryName }: Props) {
           return (
             <MovieItem
               key={movie.id}
-              id={movie.id}
+              pathname={isTvSeries ? `/show/${movie.id}` : `/movie/${movie.id}`}
               path={movie.backdrop_path || movie.poster_path}
               movieTitle={title}
               isTvSeries={isTvSeries}

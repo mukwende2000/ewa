@@ -40,7 +40,7 @@ export interface MovieDetailsType extends MovieType {
   tagline: string;
 }
 
-export interface SeriesType {
+export interface SeriesDetailsType {
   backdrop_path: string;
   genre_ids: number[];
   id: number;
@@ -54,6 +54,8 @@ export interface SeriesType {
   name: string;
   vote_average: number;
   vote_count: number;
+  homepage: string;
+  tagline: string;
 }
 
 export interface CastItemType {
