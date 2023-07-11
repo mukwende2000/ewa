@@ -1,4 +1,4 @@
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Container from "../components/Container";
 import { useState } from "react";
@@ -6,6 +6,7 @@ import { useState } from "react";
 function index() {
   const [query, setQuery] = useState<string>();
   const { pathname } = useLocation();
+  const navigate = useNavigate();
   const placeholder: string = pathname.includes("series")
     ? "series"
     : pathname.includes("movies")
@@ -13,7 +14,7 @@ function index() {
     : "movies and tv series";
 
   function handleClick() {
-    // navigate('')
+    navigate(`/searchList/${query}`);
   }
   return (
     <div className="lg:flex">
