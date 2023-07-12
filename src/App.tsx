@@ -12,7 +12,7 @@ import MovieDetails, {
 import SeriesDetails, {
   loader as SeriesDetailsLoader,
 } from "./routes/SeriesDetails";
-import SearchList, { loader as SearchListLoader } from "./routes/SearchList";
+import SearchList from "./routes/SearchList";
 
 function App() {
   const router = createBrowserRouter([
@@ -53,7 +53,6 @@ function App() {
         {
           element: <SearchList />,
           path: "/searchList/:id",
-          loader: SearchListLoader,
         },
       ],
     },

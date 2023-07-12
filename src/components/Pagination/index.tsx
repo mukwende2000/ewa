@@ -24,8 +24,11 @@ function index({ setPage, page, totalPages }: Props) {
         Page {page} of {totalPages}
       </p>
       <button
+        disabled={page === totalPages}
         onClick={() => setPage((prev) => prev + 1)}
-        className="basis-full py-2 text-white hover:text-black hover:bg-white flex justify-center items-center gap-2"
+        className={`basis-full py-2 text-white  ${
+          page === totalPages ? null : "hover:text-black hover:bg-white"
+        } flex justify-center items-center gap-2`}
       >
         <span>Next</span>
         <FaArrowRight />
