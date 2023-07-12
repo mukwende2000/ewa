@@ -35,15 +35,15 @@ const series: Genre[] = [
   { name: "Documentary", id: "99" },
   { name: "Drama", id: "18" },
   { name: "Family", id: "10751" },
-  { name: "Kids", id: "37" },
+  { name: "Kids", id: "10762" },
   { name: "Mystery", id: "9648" },
-  { name: "News", id: "10762" },
-  { name: "Reality", id: "10763" },
-  { name: "Sci-Fi & Fantasy", id: "10764" },
-  { name: "Soap", id: "10765" },
-  { name: "Talk", id: "10766" },
+  { name: "News", id: "10763" },
+  { name: "Reality", id: "10764" },
+  { name: "Sci-Fi & Fantasy", id: "10765" },
+  { name: "Soap", id: "10766" },
+  { name: "Talk", id: "10767" },
   { name: "war & Politics", id: "10767" },
-  { name: "Western", id: "10768" },
+  { name: "Western", id: "37" },
 ];
 
 interface Category {

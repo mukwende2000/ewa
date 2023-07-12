@@ -3,8 +3,8 @@ import RootLayout from "./RootLayout";
 import Home from "./routes/Home";
 import Movies from "./routes/Movies";
 import Series from "./routes/Series";
-import MovieList, { loader as MovieLoader } from "./routes/MovieList";
-import SeriesList, { loader as SeriesLoader } from "./routes/SeriesList";
+import MovieList from "./routes/MovieList";
+import SeriesList from "./routes/SeriesList";
 import MovieDetails, {
   loader as movieDetailsLoader,
 } from "./routes/MovieDetails";
@@ -45,12 +45,10 @@ function App() {
         {
           element: <MovieList />,
           path: "movies/:id",
-          loader: MovieLoader,
         },
         {
           element: <SeriesList />,
           path: "series/:id",
-          loader: SeriesLoader,
         },
         {
           element: <SearchList />,

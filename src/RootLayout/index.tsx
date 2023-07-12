@@ -21,7 +21,7 @@ function index() {
       <Navbar />
       <div className="basis-full">
         <Container>
-          <div className="flex justify-between my-5 p-5">
+          <div className="flex justify-between my-10 px-5">
             <input
               className="text-white basis-[80%] bg-transparent focus:outline-none focus:border-b border-b-slate-600 md:placeholder:text-2xl"
               placeholder={`Search for ${placeholder}`}

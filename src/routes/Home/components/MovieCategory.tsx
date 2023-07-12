@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import MovieItem from "./MovieItem";
 import { useQuery } from "@tanstack/react-query";
 import { getData } from "../../../services/getData";
-import { MovieType, SeriesType } from "../../../utils/types";
+import { MovieType, SeriesDetailsType } from "../../../utils/types";
 
 type Props = {
   isTvSeries?: boolean;
@@ -31,7 +31,7 @@ function MovieCategory({ endPoint, isTvSeries, categoryName }: Props) {
         </Link>
       </div>
       <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
-        {movies?.map((movie: MovieType | SeriesType, index: number) => {
+        {movies?.map((movie: MovieType | SeriesDetailsType, index: number) => {
           let title;
           let year;
           if ("title" in movie && "release_date" in movie) {
