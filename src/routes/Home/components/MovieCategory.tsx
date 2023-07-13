@@ -3,6 +3,7 @@ import MovieItem from "./MovieItem";
 import { useQuery } from "@tanstack/react-query";
 import { getData } from "../../../services/getData";
 import { MovieType, SeriesDetailsType } from "../../../utils/types";
+import { BiLoaderCircle } from "react-icons/bi";
 
 type Props = {
   isTvSeries?: boolean;
@@ -16,6 +17,8 @@ function MovieCategory({ endPoint, isTvSeries, categoryName }: Props) {
     queryFn: () => getData(endPoint),
   });
   const movies = movieQuery.data?.data?.results?.slice(0, 6);
+  if (movieQuery.isLoading)
+    return <BiLoaderCircle className="animate-spin m-auto text-5xl my-10" />;
 
   return (
     <div className="first:mt-9 mt-20">
@@ -36,10 +39,10 @@ function MovieCategory({ endPoint, isTvSeries, categoryName }: Props) {
           let year;
           if ("title" in movie && "release_date" in movie) {
             title = movie.title;
-            year = movie.release_date.slice(0, 4);
+            year = movie.release_date?.slice(0, 4);
           } else {
             title = movie.name;
-            year = movie.first_air_date.slice(0, 4);
+            year = movie.first_air_date?.slice(0, 4);
           }
           return (
             <MovieItem

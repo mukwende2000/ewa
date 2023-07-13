@@ -52,7 +52,7 @@ function App() {
         },
         {
           element: <SearchList />,
-          path: "/searchList/:id",
+          path: "/searchlist/:id",
         },
       ],
     },

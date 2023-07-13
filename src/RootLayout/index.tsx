@@ -5,7 +5,7 @@ import { useState } from "react";
 
 function index() {
   const [query, setQuery] = useState<string>();
-  const { pathname } = useLocation();
+  const { pathname }: { pathname: string } = useLocation();
   const navigate = useNavigate();
   const placeholder: string = pathname.includes("series")
     ? "series"
@@ -14,7 +14,7 @@ function index() {
     : "movies and tv series";
 
   function handleClick() {
-    navigate(`/searchList/${query}`);
+    navigate(`/searchlist/${query}`);
   }
   return (
     <div className="lg:flex">

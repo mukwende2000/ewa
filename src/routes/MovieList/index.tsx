@@ -36,7 +36,7 @@ function index() {
               pathname={`/movie/${movie.id}`}
               path={movie.backdrop_path}
               movieTitle={movie.title}
-              year={movie.release_date.slice(0, 3)}
+              year={movie.release_date?.slice(0, 3)}
             />
           );
         })}

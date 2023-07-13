@@ -1,7 +1,7 @@
 import axios from "axios";
 import MovieItem from "../Home/components/MovieItem";
 import { API_KEY } from "../../services/requests";
-import { useLoaderData, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Container from "../../components/Container";
 import Pagination from "../../components/Pagination";
 import Footer from "../../components/Footer";
@@ -20,7 +20,7 @@ function index() {
   }
 
   const { isLoading, isError, data } = useQuery({
-    queryKey: ["movies", { page }],
+    queryKey: ["movies", { page }, param.id],
     keepPreviousData: true,
     queryFn: () => fetchNextPage(page),
   });
